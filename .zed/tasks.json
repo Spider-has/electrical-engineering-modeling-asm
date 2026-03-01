@@ -1,0 +1,12 @@
+[
+  {
+    "label": "Format VHDL Hashtags",
+    "command": "python",
+    "args": [
+        "$ZED_WORKTREE_ROOT/fix_hashtags.py", 
+        "$ZED_FILE"
+    ],
+    "use_new_terminal": false,
+    "allow_concurrent_runs": false
+  }
+]
