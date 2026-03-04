@@ -14,9 +14,13 @@ def process_vhd(filename):
     counter = 0
 
     for line in lines:
-        if re.search(r'X"[0-9A-Fa-f_]+"', line):
+        
+        if re.search(r'X"[\?0-9A-Fa-f_]+"', line):
             if "--" in line:
                 code_part, comment_part = line.split("--", 1)
+            elif line.startswith("--"):
+              new_lines.append(line)
+              continue
             else:
                 code_part = line.rstrip()
                 comment_part = ""
