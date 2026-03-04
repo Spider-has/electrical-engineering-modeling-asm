@@ -45,6 +45,7 @@ int *heapSort(int *arr, size_t size) {
       std::swap(*(arr+index), *(arr+m));
       index = m;
     }
+  }
     for (int i = size - 1; i >= 0; --i) {
       std::swap(*(arr +i), *(arr));
       int index = 0;
@@ -61,8 +62,8 @@ int *heapSort(int *arr, size_t size) {
         std::swap(arr[index], arr[m]);
         index = m;
       }
-      return arr;
     }
+      return arr;
   }
 
   int main() {
