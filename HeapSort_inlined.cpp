@@ -67,6 +67,7 @@ int *heapSort(int *arr, size_t size) {
       std::swap(arr[index], arr[m]);
       index = m;
     }
+    
   }
   return arr;
 }
