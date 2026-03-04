@@ -29,12 +29,12 @@ int *heapSort(int *arr, size_t size) {
     int index = i;
     while (true) {
       size_t l = 2 * index + 1;
-      if (l >= size)
+      if (l >= size) // size > l ==> size - l < 0
         break;
       size_t r = l + 1;
       size_t m = l;
-      if (r < size) {
-        if (*(arr + r) < *(arr + l)) {
+      if (r < size) { // мы хотим r - size >= 0 чтобы скипнуть тело цикла 
+        if (*(arr + r) < *(arr + l)) { // мы хотим r8- ra >=0 
           m = r;
         }
       }
@@ -43,6 +43,7 @@ int *heapSort(int *arr, size_t size) {
       std::swap(*(arr + index), *(arr + m));
       index = m;
     }
+    
   }
   for (int i = size - 1; i >= 0; --i) {
     std::swap(*(arr + i), *(arr));
@@ -53,8 +54,14 @@ int *heapSort(int *arr, size_t size) {
         break;
       size_t r = l + 1;
       size_t m = l;
-      if (r < i && *(arr + r) < *(arr + l))
-        m = r;
+      if (r < i)
+      {
+          if (*(arr + r) < *(arr + l))
+          {
+              m = r;
+          }
+      }
+
       if (arr[index] <= arr[m])
         break;
       std::swap(arr[index], arr[m]);
